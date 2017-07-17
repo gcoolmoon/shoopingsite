@@ -1,12 +1,22 @@
 package app.model;
 
+import java.util.List;
+
 public class User {
    private int userId;
+   private List<Role> roles;
    private String firstName;
    private String LastName;
    private String email; 
    private String username;
    private String password;
+   
+public List<Role> getRoles() {
+	return roles;
+}
+public void addRole(Role role) {
+	this.roles.add(role);
+}
 public int getUserId() {
 	return userId;
 }
