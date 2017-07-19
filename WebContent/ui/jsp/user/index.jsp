@@ -7,11 +7,7 @@
 <link href="ui/css/bootstrap.css" rel="stylesheet" type="text/css"
 	media="all" />
 <script src="ui/js/jquery.min.js"></script>
-<!-- Custom Theme files -->
-<!--theme-style-->
 <link href="ui/css/style.css" rel="stylesheet" type="text/css"
-	media="all" />
-<!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript">
@@ -80,9 +76,9 @@
 				</div>
 				<div class=" h_menu4">
 					<ul class="memenu skyblue">
-						<li><a class="color4" href="products.html">Products</a></li>
-						<li><a class="color4" href="login.html">Login</a></li>
-						<li><a class="color4" href="register.html">Register</a></li>
+						<li><a class="color4" href="products">Products</a></li>
+						<li><a class="color4" href="login.jsp">Login</a></li>
+						<li><a class="color4" href="registration.jsp">Register</a></li>
 						<li><a class="color6" href="contact.html">Contact</a></li>
 					</ul>
 				</div>
