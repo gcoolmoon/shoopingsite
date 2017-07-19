@@ -5,12 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Manage Products</title>
-<link href="../../css/bootstrap.css" rel="stylesheet" type="text/css"
+<link href="ui/css/bootstrap.css" rel="stylesheet" type="text/css"
 	media="all" />
-<script src="../../js/jquery.min.js"></script>
+<script src="ui/js/jquery.min.js"></script>
 <!-- Custom Theme files -->
 <!--theme-style-->
-<link href="../../css/style.css" rel="stylesheet" type="text/css"
+<link href="ui/css/style.css" rel="stylesheet" type="text/css"
 	media="all" />
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,16 +24,16 @@
 	rel='stylesheet' type='text/css'>
 <!--//fonts-->
 <!-- start menu -->
-<link href="../../css/memenu.css" rel="stylesheet" type="text/css"
+<link href="ui/css/memenu.css" rel="stylesheet" type="text/css"
 	media="all" />
-<script type="text/javascript" src="../../js/memenu.js"></script>
-<script type="text/javascript" src="../../js/main.js"></script>
+<script type="text/javascript" src="ui/js/memenu.js"></script>
+<script type="text/javascript" src="ui/js/main.js"></script>
 <script>
 	$(document).ready(function() {
 		$(".memenu").memenu();
 	});
 </script>
-<script src="../../js/simpleCart.min.js">
+<script src="ui/js/simpleCart.min.js">
 	
 </script>
 </head>
@@ -43,15 +43,15 @@
 <div class=" container">
 <div class=" register">
 	
-		  	  <form action="/adminproducts" method="post">
+		  	  <form action="adminproducts" method="post">
 				 <div class="col-md-6 register-top-grid">
-					<h3>Product Information</h3>
-					
-  					<input type="hidden" name="crudaction" value="add">
-					 <div>
-						<span>Product Id</span>
-						<input type="text" name="productid"> 
-					 </div>
+					<h3>Add Product Information
+					<a href="inventory"> (Update?)</a></h3>
+   					<input type="hidden" name="crudaction" value="add">
+<!-- 					 <div> -->
+<!-- 						<span>Product Id</span> -->
+<!-- 						<input type="text" name="productid">  -->
+<!-- 					 </div> -->
 					 <div>
 						<span>Product</span>
 						<input type="text" name="productname"> 
@@ -74,7 +74,7 @@
 					 
 				     <div class="col-md-6 register-bottom-grid">
 
-							 <input type="submit" value="submit">
+							 <input type="submit" value="submit"> 
 							
 					 </div>
 					 <div class="clearfix"> </div>
