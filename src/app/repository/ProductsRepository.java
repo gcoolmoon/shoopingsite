@@ -7,8 +7,9 @@ import app.model.Product;
 
 public class ProductsRepository {
 	
+	public static List<Product> products = new ArrayList<>();
+	
 	public static List<Product> getProductsAvailable() {
-		List<Product> products = new ArrayList<>();
 		Product product = new Product(1, "Tomato", "Great big tomato", 30.14, 10, "/mercato/ui/images/pi5.jpg");
 		Product product1 = new Product(2, "Potato", "Great big potato", 20.10, 10, "/mercato/ui/images/pi5.jpg");
 		Product product2 = new Product(3, "Onion", "Great big Onion", 15.00, 10, "/mercato/ui/images/pi5.jpg");
@@ -26,6 +27,10 @@ public class ProductsRepository {
 		
 		return products;
 		
+	}
+	
+	public static Product getProduct(int id) {
+		return products.stream().filter(item -> item.getProductId() == id).findFirst().get();
 	}
 
 }
