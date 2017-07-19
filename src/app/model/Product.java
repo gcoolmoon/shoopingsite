@@ -10,6 +10,10 @@ public class Product {
 	private String image;
 	
 	
+	public Product() {
+		super();
+	}
+
 	public Product(int productId, String productName, String productDescription, Double price, int amountAvailable, String image) {
 		this.productId = productId;
 		this.productName = productName;
