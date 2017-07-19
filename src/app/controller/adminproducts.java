@@ -58,9 +58,9 @@ public class adminproducts extends HttpServlet {
 		
 		Product product = new Product();
 		product.setAmountAvailable(amount);
-		product.setPicture(imagePath);
+		product.setImage(imagePath);
 		product.setPrice(price);
-		product.setProdcutDescription(description);
+		product.setProductDescription(description);
 		//if(productId != -1)
 		product.setProductId(productId);
 		
