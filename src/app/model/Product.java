@@ -4,12 +4,29 @@ public class Product {
 
 	private int productId;
 	private String productName;
-	private String prodcutDescription;
+	private String productDescription;
 	private Double price;
 	private String image;
 	private int amountAvailable;
+	private String image;
 	
 	
+	public Product(int productId, String productName, String productDescription, Double price, int amountAvailable, String image) {
+		this.productId = productId;
+		this.productName = productName;
+		this.productDescription = productDescription;
+		this.price = price;
+		this.amountAvailable = amountAvailable;
+		this.image = image;
+	}
+	
+	public String getImage() {
+		return image;
+	}
+	
+	public void setImage(String image) {
+		this.image = image;
+	}
 	
 	public String getPicture() {
 		return image;
@@ -29,11 +46,11 @@ public class Product {
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
-	public String getProdcutDescription() {
-		return prodcutDescription;
+	public String getProductDescription() {
+		return productDescription;
 	}
-	public void setProdcutDescription(String prodcutDescription) {
-		this.prodcutDescription = prodcutDescription;
+	public void setProductDescription(String prodcutDescription) {
+		this.productDescription = prodcutDescription;
 	}
 	public Double getPrice() {
 		return price;
@@ -47,9 +64,6 @@ public class Product {
 	public void setAmountAvailable(int amountAvailable) {
 		this.amountAvailable = amountAvailable;
 	}
-	
-	
-	
 	
 	
 }
