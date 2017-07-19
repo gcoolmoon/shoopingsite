@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebFilter(
 		
 		filterName = "checkloginfilter",
-		urlPatterns = "/login")
+		urlPatterns = "/checkout")
 public class checkloginfilter implements Filter {
 
     /**
@@ -40,14 +40,14 @@ public class checkloginfilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		// place your code here
+		
 		String path = ( (HttpServletRequest) request).getRequestURI().substring(( (HttpServletRequest) request).getContextPath().length());
-        if((( (HttpServletRequest) request).getSession().getAttribute("CurrentUser")!= null) 
-        		|| path.equalsIgnoreCase("/") || path.equalsIgnoreCase("/login-form.jsp")
-        		|| path.equalsIgnoreCase("/login")){
+        if(( (HttpServletRequest) request).getSession().getAttribute("CurrentUser")!= null) 
+        		{
         	chain.doFilter(request, response);
         }
         else {
-        ((HttpServletRequest)request).getRequestDispatcher("login.jsp").forward(request, response);
+        ((HttpServletRequest)request).getRequestDispatcher("/login").forward(request, response);
         }
 		// pass the request along the filter chain
 		//chain.doFilter(request, response);

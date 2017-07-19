@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import app.model.Product;
+import app.repository.ProductsRepository;
 
 /**
  * Servlet implementation class adminproducts
@@ -30,7 +31,7 @@ public class adminproducts extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.getRequestDispatcher("admin_products.jsp").forward(request, response);
+		request.getRequestDispatcher("ui/jsp/admin/admin_products.jsp").forward(request, response);
 	}
 
 	/**
@@ -43,7 +44,7 @@ public class adminproducts extends HttpServlet {
 		//get parameter values from admin products page 
 		String crudAction = request.getParameter("crudaction");
 		if("add".equals(crudAction)) {
-		if(request.getParameter("productid")!= null)
+		if(!request.getParameter("productid").isEmpty())
 		   productId = Integer.parseInt(request.getParameter("productid")) ;
 		else
 			productId =(int )(Math. random() * 500 + 1) ; // only for 500 products
@@ -63,9 +64,11 @@ public class adminproducts extends HttpServlet {
 		product.setProductDescription(description);
 		//if(productId != -1)
 		product.setProductId(productId);
-		
+		//doGet(request, response);
 		
 		//add products 
+		ProductsRepository.addProduct(product);
+		response.sendRedirect("adminproducts");
 		}
 		else if("update".equals(crudAction))
 		{
@@ -73,14 +76,15 @@ public class adminproducts extends HttpServlet {
 			int additionalamount = Integer.parseInt(request.getParameter("amount")) ;
 			
 			//get a product by id and then update the amount and save it back
-			
+			ProductsRepository.updateProduct(productId, additionalamount);
+			response.sendRedirect("inventory");
 		}
 		
 		// send to the model class to update the data access 
 		
 		//redirect back to the add products page
 		
-		response.sendRedirect("/adminproducts");
+		
 		
 		
 	}

@@ -1,10 +1,11 @@
 package app.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class User {
    private int userId;
-   private List<Role> roles;
+   private List<Role> roles = new ArrayList<>();
    private String firstName;
    private String LastName;
    private String email; 

@@ -28,6 +28,21 @@ public class ProductsRepository {
 		return products;
 		
 	}
+	public static void addProduct(int id, String name, String description, double price, int amount, String url) {
+	   Product product = new Product(id, name, description, price, amount, url);
+	   products.add(product);
+   }
+   public static void addProduct(Product product) {
+	   products.add(product);
+   }
+   public static void updateProduct(int productId, int amount) {
+	   for (Product product : products) {
+		   if(product.getProductId() == productId)
+		   {
+			   product.setAmountAvailable(product.getAmountAvailable() + amount);
+		   }
+		   }
+   }
 	
 	public static Product getProduct(int id) {
 		return products.stream().filter(item -> item.getProductId() == id).findFirst().get();

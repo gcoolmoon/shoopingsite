@@ -40,6 +40,9 @@ public class login extends HttpServlet {
 		String userName = null;
 		//gets the link where this request has arrived from inorder to redirect it to that page
 		String path = ( (HttpServletRequest) request).getRequestURI().substring(( (HttpServletRequest) request).getContextPath().length());
+		System.out.println(request.getAttribute("message"));
+		request.setAttribute("message", request.getAttribute("message"));
+		System.out.println(request.getAttribute("message"));
 		HttpSession session = request.getSession(true); 
 		if( path.equalsIgnoreCase("/login.jsp")
 	        		|| path.equalsIgnoreCase("/login")){
@@ -56,7 +59,7 @@ public class login extends HttpServlet {
 		request.setAttribute("uname", userName);
 		request.setAttribute("rememberme", "checked");
 		}
-		request.getRequestDispatcher("login-form.jsp").forward(request, response);
+		request.getRequestDispatcher("ui/jsp/user/login.jsp").forward(request, response);
 		
 		//response.sendRedirect("login-form.jsp");
 	}
@@ -67,6 +70,7 @@ public class login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
+		System.out.println("Something is here today may be tomm there will be another");
 		String username = request.getParameter("username").toString();
 		String password = request.getParameter("password").toString();
 		Boolean rememberme = request.getParameter("rememberme")!= null;
@@ -91,17 +95,24 @@ public class login extends HttpServlet {
 
 			
 			//if the requestor didnt came from the login page go to home other wise to the one who requests  for normal users
-			if(session.getAttribute("requestorpath")!= null && loggedInUser.getRoles().stream().anyMatch(a -> a.getRole()=="user")) {
-			  requestorPath = session.getAttribute("requestorpath").toString();
-				request.getRequestDispatcher(requestorPath).forward(request, response);}
+			if(session.getAttribute("currentpage")!= null && loggedInUser.getRoles().stream().anyMatch(a -> a.getRole()=="user")) {
+			  requestorPath = session.getAttribute("currentpage").toString();
+			  response.sendRedirect(requestorPath);
+				//request.getRequestDispatcher(requestorPath).forward(request, response);
+				}
 			else if(loggedInUser.getRoles().stream().anyMatch(a -> a.getRole()=="admin")) {
-				request.getRequestDispatcher("/adminproducts").forward(request, response);
+				//request.getRequestDispatcher("adminproducts").forward(request, response);
+				response.sendRedirect("adminproducts");
 			}
 				
 			
 		}
-		else
-			response.sendRedirect("login-form.jsp");
+		else {
+			request.setAttribute("message", "Wrong username or password!!!");
+			request.getRequestDispatcher("ui/jsp/user/login.jsp").forward(request, response);
+			
+			//response.sendRedirect("login");
+		}
 			
 		
 	}

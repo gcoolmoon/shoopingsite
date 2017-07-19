@@ -1,12 +1,24 @@
 package app.model;
 
-public class Product_Order {
+import app.repository.ProductsRepository;
+
+public class ProductOrder {
 	private int productOrderId;
 	private int productId;
+	private String productName;
+	
+	
 	private int orderId;
 	private int amount;
 	
 	
+	
+	public String getProductName() {
+		return productName;
+	}
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
 	public int getProductOrderId() {
 		return productOrderId;
 	}
