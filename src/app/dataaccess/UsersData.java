@@ -16,13 +16,17 @@ public class UsersData {
 	private static int count = 0;
     private static boolean isLoggedIn = false;
 	public static void addUsers() {
-
+        
+		Role role = new Role(1, "user");
+		Role role1 = new Role(2, "admin");
 		User user1 = new User();
 		user1.setUsername("jak");
 		user1.setPassword("jak");
+		user1.addRole(role);
 		User user2 = new User();
 		user2.setUsername("jak1");
 		user2.setPassword("jak1");
+		user2.addRole(role1);
 		User user3 = new User();
 		user3.setUsername("jak2");
 		user3.setPassword("jak2");

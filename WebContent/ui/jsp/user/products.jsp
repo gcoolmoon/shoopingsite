@@ -97,8 +97,8 @@
 				</div>
 				<div class=" h_menu4">
 					<ul class="memenu skyblue">
-						<li><a class="color4" href="registration.jsp">Login</a></li>
-						<li><a class="color4" href="login.jsp">Login</a></li>
+						<li><a class="color4" href="registration.jsp">Register</a></li>
+						<li><a class="color4" href="login">Login</a></li>
 						<li><a class="color6" href="contact.html">Contact</a></li>
 					</ul>
 				</div>

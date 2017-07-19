@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Order {
        private int orderId;
-       private List<Product_Order> productsOrders;
+       private List<ProductOrder> productsOrders;
        private Date orderDate;
        
        
@@ -13,13 +13,13 @@ public class Order {
 	public void setOrderId(int orderId) {
 		this.orderId = orderId;
 	}
-	public List<Product_Order> getProductsOrder() {
+	public List<ProductOrder> getProductsOrder() {
 		return productsOrders;
 	}
-	public void setProductsOrder(List<Product_Order> productsOrders) {
+	public void setProductsOrder(List<ProductOrder> productsOrders) {
 		this.productsOrders = productsOrders;
 	}
-       public void addProduct(Product_Order productOrder) {
+       public void addProduct(ProductOrder productOrder) {
     	   this.productsOrders.add(productOrder);
        }
 	public Date getOrderDate() {
