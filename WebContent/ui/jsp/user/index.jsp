@@ -3,8 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Mattress A Ecommerce Category Flat Bootstrap Responsive
-	Website Template | Home :: w3layouts</title>
+<title>Mercato Shopping Site</title>
 <link href="ui/css/bootstrap.css" rel="stylesheet" type="text/css"
 	media="all" />
 <script src="ui/js/jquery.min.js"></script>

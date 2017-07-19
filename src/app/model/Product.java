@@ -6,10 +6,17 @@ public class Product {
 	private String productName;
 	private String prodcutDescription;
 	private Double price;
+	private String image;
 	private int amountAvailable;
 	
 	
 	
+	public String getPicture() {
+		return image;
+	}
+	public void setPicture(String picture) {
+		this.image = picture;
+	}
 	public int getProductId() {
 		return productId;
 	}
