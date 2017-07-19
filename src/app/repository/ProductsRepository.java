@@ -28,7 +28,7 @@ public class ProductsRepository {
 		return products;
 		
 	}
-	public static void addProduct(int id, String name, String description, double price, int amount, String url) {
+   public static void addProduct(int id, String name, String description, double price, int amount, String url) {
 	   Product product = new Product(id, name, description, price, amount, url);
 	   products.add(product);
    }
@@ -43,9 +43,7 @@ public class ProductsRepository {
 		   }
 		   }
    }
-	
 	public static Product getProduct(int id) {
 		return products.stream().filter(item -> item.getProductId() == id).findFirst().get();
 	}
-
 }
