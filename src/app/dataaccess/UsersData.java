@@ -20,15 +20,18 @@ public class UsersData {
 		Role role = new Role(1, "user");
 		Role role1 = new Role(2, "admin");
 		User user1 = new User();
-		user1.setUsername("jak");
+		user1.setUsername("jak@gmail.com");
+		user1.setFirstName("Jak");
 		user1.setPassword("jak");
 		user1.addRole(role);
 		User user2 = new User();
-		user2.setUsername("jak1");
+		user2.setUsername("jak1@gmail.com");
+		user2.setFirstName("Jak1");
 		user2.setPassword("jak1");
 		user2.addRole(role1);
 		User user3 = new User();
 		user3.setUsername("jak2");
+		user2.setFirstName("Jak1");
 		user3.setPassword("jak2");
 
 		add(user1);

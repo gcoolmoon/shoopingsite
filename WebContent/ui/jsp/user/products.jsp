@@ -17,23 +17,25 @@
 	
 	
 	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
 
 
 
 
+
 </script>
-<link href='//fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
-<link href="ui/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+<link href='//fonts.googleapis.com/css?family=Lato:100,300,400,700,900'
+	rel='stylesheet' type='text/css'>
+<link
+	href='//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'
+	rel='stylesheet' type='text/css'>
+<link href="ui/css/memenu.css" rel="stylesheet" type="text/css"
+	media="all" />
 <script type="text/javascript" src="ui/js/memenu.js"></script>
 <script type="text/javascript" src="ui/js/product.js"></script>
-<script>
-	$(document).ready(function() {
-		$(".memenu").memenu();
-	});
-</script>
-<script type="text/javascript" src="ui/js/product.js"></script>
+
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 </head>
 <body>
@@ -42,26 +44,6 @@
 		<div class="header-top">
 			<div class="container">
 				<div class="header-left">
-
-					<div class="search-box">
-						<div id="sb-search" class="sb-search">
-							<form action="#" method="post">
-								<input class="sb-search-input"
-									placeholder="Enter your search term..." type="search"
-									id="search"> <input class="sb-search-submit"
-									type="submit" value=""> <span class="sb-icon-search">
-								</span>
-							</form>
-						</div>
-					</div>
-
-					<!-- search-scripts -->
-					<script src="ui/js/classie.js"></script>
-					<script src="ui/js/uisearch.js"></script>
-					<script>
-						new UISearch(document.getElementById('sb-search'));
-					</script>
-					<!-- //search-scripts -->
 
 					<div class="ca-r">
 						<div class="cart box_1">
@@ -80,22 +62,32 @@
 						</div>
 					</div>
 					<div class="clearfix"></div>
+					
 				</div>
-
+					<c:if test="${sessionScope.CurrentUser!=null}">
+					<div> <c:out value="Welcome, ${sessionScope.CurrentUser.firstName}"></c:out>  </div>
+					<span><a href="logout"> LOGOUT </a></span>
+					</c:if>
+					
 			</div>
 		</div>
 		<div class="container">
 			<div class="head-top">
 				<div class="logo">
 					<h1>
-						<a href="index.html">Mercato</a>
+						<a href="/mercato">Mercato</a>
 					</h1>
 				</div>
 				<div class=" h_menu4">
 					<ul class="memenu skyblue">
-						<li><a class="color4" href="registration.jsp">Register</a></li>
+						<li><a class="color4" href="products">Products</a></li>
+					 <c:if test="${sessionScope.CurrentUser==null}">
+						<li><a class="color4" href="register">Register</a></li>
 						<li><a class="color4" href="login">Login</a></li>
-						<li><a class="color6" href="contact.html">Contact</a></li>
+						</c:if>
+						 <c:if test="${sessionScope.CurrentUser!=null}">
+						<li><a class="color4" href="orderhistory">Orders</a></li>
+						</c:if>
 					</ul>
 				</div>
 
@@ -119,9 +111,9 @@
 					<c:forEach items="${products}" var="product">
 						<div class="col-md-6 bottom-cd simpleCart_shelfItem">
 							<div class="product-at ">
-								<a
+								<a id="imglink"
 									href="<c:url value="product_detail">
-    										<c:param name="productId" value="${product.productId}" />
+    										<c:param  name="productId" value="${product.productId}" />
 										</c:url>"><img
 									class="img-responsive" src="${product.image}" alt="">
 									<div class="pro-grid">
