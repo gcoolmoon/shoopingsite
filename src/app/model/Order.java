@@ -5,8 +5,24 @@ public class Order {
        private int orderId;
        private List<ProductOrder> productsOrders;
        private Date orderDate;
+       private String personalAddress;
+       private String shippingAddress;
        
        
+       
+       
+	public String getPersonalAddress() {
+		return personalAddress;
+	}
+	public void setPersonalAddress(String personalAddress) {
+		this.personalAddress = personalAddress;
+	}
+	public String getShippingAddress() {
+		return shippingAddress;
+	}
+	public void setShippingAddress(String shippingAddress) {
+		this.shippingAddress = shippingAddress;
+	}
 	public int getOrderId() {
 		return orderId;
 	}

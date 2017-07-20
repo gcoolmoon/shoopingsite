@@ -12,7 +12,12 @@ import app.repository.ProductsRepository;
 
 public class ProductListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
- 
+	@Override
+    public void init() throws ServletException {
+    	// TODO Auto-generated method stub
+    	ProductsRepository.addProducts();
+    	super.init();
+    }
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("products", ProductsRepository.getProductsAvailable());
