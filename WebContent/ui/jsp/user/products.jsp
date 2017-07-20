@@ -23,13 +23,9 @@
 
 
 </script>
-<link href='//fonts.googleapis.com/css?family=Lato:100,300,400,700,900'
-	rel='stylesheet' type='text/css'>
-<link
-	href='//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'
-	rel='stylesheet' type='text/css'>
-<link href="ui/css/memenu.css" rel="stylesheet" type="text/css"
-	media="all" />
+<link href='//fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+<link href="ui/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="ui/js/memenu.js"></script>
 <script type="text/javascript" src="ui/js/product.js"></script>
 <script>
@@ -37,7 +33,7 @@
 		$(".memenu").memenu();
 	});
 </script>
-<script src="ui/js/simpleCart.min.js"></script>
+<script type="text/javascript" src="ui/js/product.js"></script>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 </head>
 <body>
@@ -72,7 +68,7 @@
 							<a href="checkout.html">
 								<h3>
 									<div class="total">
-										<span class="simpleCart_total"></span>
+										<span class="total_amount"></span>
 									</div>
 									<img src="ui/images/cart.png" alt="" />
 								</h3>

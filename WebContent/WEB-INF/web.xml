@@ -4,6 +4,18 @@
   <welcome-file-list>
     <welcome-file>ui/jsp/user/index.jsp</welcome-file>
   </welcome-file-list>
+  
+  <servlet>
+    <description></description>
+    <display-name>ProductListServlet</display-name>
+    <servlet-name>ProductListServlet</servlet-name>
+    <servlet-class>app.controller.ProductListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProductListServlet</servlet-name>
+    <url-pattern>/products</url-pattern>
+  </servlet-mapping>
+  
   <servlet>
     <description></description>
     <display-name>ProductServlet</display-name>
@@ -12,9 +24,8 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ProductServlet</servlet-name>
-    <url-pattern>/products</url-pattern>
+    <url-pattern>/product</url-pattern>
   </servlet-mapping>
-  
   
   <servlet>
     <description></description>
@@ -26,4 +37,16 @@
     <servlet-name>ProductDetailServlet</servlet-name>
     <url-pattern>/product_detail</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>CheckoutServlet</display-name>
+    <servlet-name>CheckoutServlet</servlet-name>
+    <servlet-class>app.controller.CheckoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckoutServlet</servlet-name>
+    <url-pattern>/checkout</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

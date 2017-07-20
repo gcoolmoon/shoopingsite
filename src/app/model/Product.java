@@ -23,6 +23,24 @@ public class Product {
 		this.image = image;
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Product) {
+			Product product = (Product) obj;
+			if(product.getProductId() == this.getProductId()) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	
+
+	@Override
+	public int hashCode() {
+		return this.productId;
+	}
+
 	public String getImage() {
 		return image;
 	}

@@ -1,22 +1,38 @@
 package app.model;
 
-import java.util.*;
-
 public class ShoopingCart {
 
-	 private List<Product> products ;
-
-	public List<Product> getProducts() {
-		return products;
-	}
-
-	public void setProducts(List<Product> products) {
-		this.products = products;
-	}
+	 private Product product;
 	 
-	 public void addProduct(Product product) {
-		 this.products.add(product);
-	 }
+	 private int quantity;
 	 
+	public Product getProduct() {
+		return product;
+	}
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	@Override
+	public int hashCode() {
+		return product.getProductId();
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof ShoopingCart) {
+			ShoopingCart cart = (ShoopingCart) obj;
+			if(cart.getProduct().getProductId() == this.product.getProductId()) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	
 	 
 }
