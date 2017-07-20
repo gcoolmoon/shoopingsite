@@ -2,8 +2,10 @@ package app.repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import app.model.Product;
+import app.model.ShoopingCart;
 
 public class ProductsRepository {
 	
@@ -43,7 +45,16 @@ public class ProductsRepository {
 		   }
 		   }
    }
+   
 	public static Product getProduct(int id) {
 		return products.stream().filter(item -> item.getProductId() == id).findFirst().get();
 	}
+	
+	public static List<Product> getProducts(List<String> inputProducts) {
+		return inputProducts.stream()
+				.map(item -> getProduct(Integer.valueOf(item)))
+				.filter(item -> products.contains(item))
+				.collect(Collectors.toList());
+	}
+	
 }
