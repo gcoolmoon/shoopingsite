@@ -38,7 +38,7 @@
 
 					<div class="ca-r">
 						<div class="cart box_1">
-							<a href="checkout.html">
+							<a href="checkout">
 								<h3>
 									<div class="total">
 										<span class="total_amount"></span>

@@ -16,24 +16,29 @@ import app.model.ShoopingCart;
 public class CheckoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.setAttribute("checkout", buildCheckoutModel(request));
-		request.getRequestDispatcher("/checkout.jsp").forward(request, response);
+		request.getRequestDispatcher("ui/jsp/user/checkout.jsp").forward(request, response);
 	}
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 	}
-	
+
 	private Checkout buildCheckoutModel(HttpServletRequest request) {
 		Checkout checkoutModel = new Checkout();
-		List<ShoopingCart> checkoutProducts = (List<ShoopingCart>) request.getSession().getAttribute("session_products");
-		checkoutModel.setCheckoutProducts(checkoutProducts);
-		checkoutModel.setProductsQuantity(checkoutProducts.size());
-		checkoutModel.setTotal(getTotal(checkoutProducts));
+		List<ShoopingCart> checkoutProducts = (List<ShoopingCart>) request.getSession()
+				.getAttribute("session_products");
+		if (checkoutProducts != null) {
+			checkoutModel.setCheckoutProducts(checkoutProducts);
+			checkoutModel.setProductsQuantity(checkoutProducts.size());
+			checkoutModel.setTotal(getTotal(checkoutProducts));
+		}
 		return checkoutModel;
-		
+
 	}
-	
+
 	private double getTotal(List<ShoopingCart> products) {
 		double value = 0.0;
 		for (ShoopingCart product : products) {
@@ -41,11 +46,11 @@ public class CheckoutServlet extends HttpServlet {
 		}
 		return round(value, 2);
 	}
-	
+
 	public static double round(double value, int places) {
-	    BigDecimal bd = new BigDecimal(value);
-	    bd = bd.setScale(places, RoundingMode.HALF_UP);
-	    return bd.doubleValue();
+		BigDecimal bd = new BigDecimal(value);
+		bd = bd.setScale(places, RoundingMode.HALF_UP);
+		return bd.doubleValue();
 	}
 
 }

@@ -14,9 +14,6 @@ import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 import app.model.Product;
 import app.repository.ProductsRepository;
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-
 
 /**
  * Servlet implementation class adminproducts

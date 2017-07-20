@@ -51,9 +51,7 @@ $(function(){
 		}, 5000);	
 	
 })</script>
-<script src="ui/js/simpleCart.min.js">
-	
-</script>
+<script src="ui/js/product.js"></script>
 <script src="ui/js/imagezoom.js"></script>
 </head>
 <body>
@@ -69,7 +67,7 @@ $(function(){
 							<a href="checkout">
 								<h3>
 									<div class="total">
-										<span class="simpleCart_total"></span>
+										<span class="total_amount"></span>
 									</div>
 									<img src="ui/images/cart.png" alt="" />
 								</h3>
