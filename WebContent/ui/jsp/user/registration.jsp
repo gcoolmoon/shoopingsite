@@ -77,7 +77,7 @@ function checkPass()
 <div class=" container">
 <div class=" register">
 	
-		  	  <form action="/register" method="post">
+		  	  <form action="register" method="post">
 				 <div class="col-md-6 register-top-grid">
 					<h3>Personal infomation</h3>
 					 <div>
@@ -90,14 +90,14 @@ function checkPass()
 					 </div>
 					 <div>
 						 <span>Email Address</span>
-						 <input type="text" name ="email"> 
+						 <input type="email" name ="email"> 
 					
 				     <div class="col-md-6 register-bottom-grid">
 						    <h3>Login information</h3>
 							 <div>
 								<span>Password</span>
 								<input type="password" name="password" id ="pass1" 
-								pattern="^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d).{6,}">
+								pattern="^.*(?=.{6,})(?=.*[a-zA-Z])(?=.*\d).{6,}">
 							 </div>
 							 <div>
 								<span>Confirm Password</span>

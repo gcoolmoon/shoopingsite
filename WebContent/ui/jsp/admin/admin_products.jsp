@@ -33,6 +33,33 @@
 		$(".memenu").memenu();
 	});
 </script>
+<script src="jQuery.AjaxFileUpload.js"></script>
+<script lang="Javascript">
+$(document).ready(function() {
+  $('input[type="file"]').ajaxfileupload({
+  'action' : 'UploadFile',
+  'onComplete' : function(response) {
+      $('#upload').hide();
+      $('#message').show();
+                        
+      var statusVal = JSON.stringify(response.status);
+
+     if(statusVal == "false")
+     {
+     $("#message").html("<font color='red'>"+JSON.stringify(response.message)+"</font>");
+     }  
+     if(statusVal == "true")
+     {
+     $("#message").html("<font color='green'>"+JSON.stringify(response.message)+"</font>");
+     }                  
+},
+'onStart' : function() {
+        $('#upload').show();
+        $('#message').hide();
+}
+});
+});
+</script>
 <script src="ui/js/simpleCart.min.js">
 	
 </script>
@@ -43,7 +70,7 @@
 <div class=" container">
 <div class=" register">
 	
-		  	  <form action="adminproducts" method="post">
+		  	  <form action="adminproducts" method="post" >
 				 <div class="col-md-6 register-top-grid">
 					<h3>Add Product Information
 					<a href="inventory"> (Update?)</a></h3>
@@ -66,7 +93,10 @@
 					 </div>
 					 <div>
 						 <span>Image :</span>
-						 <input type="file" name ="image"> </div>
+						 <input type="file" name ="file">
+						 <div id="upload" style="display: none;">Uploading..</div>
+       					 <div id="message"></div>
+						  </div>
 					 <div>
 						<span>  Product Description</span>
 						<textarea cols="100" rows="10" name="productdesc"> </textarea>

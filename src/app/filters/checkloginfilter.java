@@ -47,7 +47,7 @@ public class checkloginfilter implements Filter {
         	chain.doFilter(request, response);
         }
         else {
-        ((HttpServletRequest)request).getRequestDispatcher("/login").forward(request, response);
+        ((HttpServletRequest)request).getRequestDispatcher("login").forward(request, response);
         }
 		// pass the request along the filter chain
 		//chain.doFilter(request, response);

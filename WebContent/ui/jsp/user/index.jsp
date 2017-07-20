@@ -7,45 +7,35 @@
 <link href="ui/css/bootstrap.css" rel="stylesheet" type="text/css"
 	media="all" />
 <script src="ui/js/jquery.min.js"></script>
-<link href="ui/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="ui/css/style.css" rel="stylesheet" type="text/css"
+	media="all" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript">
-	
+
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
 
+
 </script>
-<!--fonts-->
 <link href='//fonts.googleapis.com/css?family=Lato:100,300,400,700,900'
 	rel='stylesheet' type='text/css'>
 <link
 	href='//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'
 	rel='stylesheet' type='text/css'>
-<!--//fonts-->
-<!-- start menu -->
 <link href="ui/css/memenu.css" rel="stylesheet" type="text/css"
 	media="all" />
 <script type="text/javascript" src="ui/js/memenu.js"></script>
-<script>
-	$(document).ready(function() {
-		$(".memenu").memenu();
-	});
-</script>
-<script src="ui/js/simpleCart.min.js">
-	
-</script>
+<script type="text/javascript" src="ui/js/product.js"></script>
+
+<script src="ui/js/simpleCart.min.js"></script>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 </head>
 <body>
-	<!--header-->
 	<div class="header">
 		<div class="header-top">
 			<div class="container">
-				<div class="social">
-					<ul>
-						<div class="clearfix"></div>
-					</ul>
-				</div>
 				<div class="header-left">
+
 					<div class="ca-r">
 						<div class="cart box_1">
 							<a href="checkout.html">
@@ -63,23 +53,32 @@
 						</div>
 					</div>
 					<div class="clearfix"></div>
+					
 				</div>
-
+					<c:if test="${sessionScope.CurrentUser!=null}">
+					<div> <c:out value="Welcome, ${sessionScope.CurrentUser.firstName}"></c:out>  </div>
+					<span><a href="logout"> LOGOUT </a></span>
+					</c:if>
+					
 			</div>
 		</div>
 		<div class="container">
 			<div class="head-top">
 				<div class="logo">
 					<h1>
-						<a href="index.html">Mercato</a>
+						<a href="/mercato">Mercato</a>
 					</h1>
 				</div>
 				<div class=" h_menu4">
 					<ul class="memenu skyblue">
 						<li><a class="color4" href="products">Products</a></li>
-						<li><a class="color4" href="login.jsp">Login</a></li>
-						<li><a class="color4" href="registration.jsp">Register</a></li>
-						<li><a class="color6" href="contact.html">Contact</a></li>
+					 <c:if test="${sessionScope.CurrentUser==null}">
+						<li><a class="color4" href="register">Register</a></li>
+						<li><a class="color4" href="login">Login</a></li>
+						</c:if>
+						 <c:if test="${sessionScope.CurrentUser!=null}">
+						<li><a class="color4" href="orderhistory">Orders</a></li>
+						</c:if>
 					</ul>
 				</div>
 
@@ -87,6 +86,7 @@
 			</div>
 		</div>
 	</div>
+	
 	<div class="banner">
 		<div class="container">
 			<div id="top" class="callbacks_container">

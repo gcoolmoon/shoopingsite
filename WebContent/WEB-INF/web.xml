@@ -14,8 +14,6 @@
     <servlet-name>ProductServlet</servlet-name>
     <url-pattern>/products</url-pattern>
   </servlet-mapping>
-  
-  
   <servlet>
     <description></description>
     <display-name>ProductDetailServlet</display-name>

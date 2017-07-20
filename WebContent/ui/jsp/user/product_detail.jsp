@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -26,11 +27,30 @@
 	media="all" />
 <script type="text/javascript" src="ui/js/memenu.js"></script>
 <script type="text/javascript" src="ui/js/product.js"></script>
+<script type="text/javascript" src="ui/js/updateproductamount.js"></script>
 <script>
 	$(document).ready(function() {
 		$(".memenu").memenu();
 	});
 </script>
+<script type="text/javascript">
+$(function(){
+	
+// 	function updateProduct(){
+// 		$.post('ProductDetailServlet',{id:$('#product').val()}, processData)
+// 	}
+	
+// 	function processData(data){
+// 		data = JSON.parse(data);
+// 		$('#availableamount').text(data.amountAvailable);
+// 	}
+	
+// 	setTimeout(updateProduct, 5000);
+	setTimeout(function(){
+		   window.location.reload(1);
+		}, 5000);	
+	
+})</script>
 <script src="ui/js/simpleCart.min.js">
 	
 </script>
@@ -38,16 +58,18 @@
 </head>
 <body>
 	<!--header-->
+	<!--header-->
 	<div class="header">
 		<div class="header-top">
 			<div class="container">
 				<div class="header-left">
+
 					<div class="ca-r">
 						<div class="cart box_1">
 							<a href="checkout.html">
 								<h3>
 									<div class="total">
-										<span class="total_amount"></span>
+										<span class="simpleCart_total"></span>
 									</div>
 									<img src="ui/images/cart.png" alt="" />
 								</h3>
@@ -59,22 +81,31 @@
 						</div>
 					</div>
 					<div class="clearfix"></div>
+					
 				</div>
-
+					<c:if test="${sessionScope.CurrentUser!=null}">
+					<div> <c:out value="Welcome, ${sessionScope.CurrentUser.firstName}"></c:out>  </div>
+					<span><a href="logout"> LOGOUT </a></span>
+					</c:if>
 			</div>
 		</div>
 		<div class="container">
 			<div class="head-top">
 				<div class="logo">
 					<h1>
-						<a href="index.html">Mattress</a>
+						<a href="/mercato">Mercato</a>
 					</h1>
 				</div>
 				<div class=" h_menu4">
 					<ul class="memenu skyblue">
-						<li><a class="color4" href="login.html">Login</a></li>
-						<li><a class="color6" href="contact.html">Contact</a></li>
-						<div class="clearfix"></div>
+						<li><a class="color4" href="products">Products</a></li>
+					 <c:if test="${sessionScope.CurrentUser==null}">
+						<li><a class="color4" href="registration.jsp">Register</a></li>
+						<li><a class="color4" href="login">Login</a></li>
+						</c:if>
+						 <c:if test="${sessionScope.CurrentUser!=null}">
+						<li><a class="color4" href="orderhistory">Orders</a></li>
+						</c:if>
 					</ul>
 				</div>
 
@@ -109,6 +140,9 @@
 							</div>
 
 							<h5 class="item_price">${product.price}</h5>
+							
+							<c:out value="Max Items Allowed : ${product.amountAvailable}" ></c:out>
+							
 							<p>${product.productDescription}</p>
 							<a href="#" class="add-cart item_add add_product">ADD TO CART</a>
 
